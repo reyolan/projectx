@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import useToggle from "../../hooks/useToggle";
+
 import { List, CoinListItem } from "./coin-list.styled";
 import { IMarketData } from "../../types";
 
 interface ICoinListProps {
   list: IMarketData[];
+  setClickedCoin: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface ICoinNames {
@@ -13,9 +14,9 @@ interface ICoinNames {
   image: string;
 }
 
-function CoinList({ list }: ICoinListProps) {
-  const [isClicked, invertIsClicked] = useToggle(false);
+function CoinList({ list, setClickedCoin }: ICoinListProps) {
   // Image Bitcoin(btc)
+  // usePagination hook
 
   const [coinNames, setCoinNames] = useState<ICoinNames[]>([]);
 
@@ -30,7 +31,16 @@ function CoinList({ list }: ICoinListProps) {
   return (
     <List>
       {coinNames.map((item, i) => {
-        return <CoinListItem key={i}>{item.name}</CoinListItem>;
+        return (
+          <CoinListItem
+            key={i}
+            onClick={e =>
+              setClickedCoin((e.target as HTMLLIElement).textContent || "")
+            }
+          >
+            {item.name}
+          </CoinListItem>
+        );
       })}
     </List>
   );
