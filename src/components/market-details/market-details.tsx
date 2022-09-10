@@ -1,11 +1,19 @@
 import { useEffect } from "react";
-import CoinList from "../coin-list";
+import useFetch from "../../hooks/useFetch";
+import { coinMarketDataApiUrl } from "../../services/api";
 import { MarketDetailsContainer } from "./market-details.styles";
+import CoinList from "../coin-list";
 
 function MarketDetails() {
+  const [data, error, isLoading] = useFetch(coinMarketDataApiUrl("usd"));
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <MarketDetailsContainer>
-      <CoinList />
+      {!isLoading && <CoinList list={data} />}
     </MarketDetailsContainer>
   );
 }

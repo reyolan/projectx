@@ -1,12 +1,8 @@
 const BASE_URL = "https://api.coingecko.com/api/v3";
 
-function coinMarketDataApiUrl(
-  vs_currency: string,
-  per_page: string,
-  page: string
-) {
+function coinMarketDataApiUrl(vs_currency: string) {
   const coinMarketRelativeUrl = "/coins/markets";
-  const searchParams = `?vs_currency=${vs_currency}&per_page=${per_page}&page=${page}`;
+  const searchParams = `?vs_currency=${vs_currency}`;
 
   return BASE_URL + coinMarketRelativeUrl + searchParams;
 }
@@ -21,4 +17,4 @@ async function getRequest(url: string): Promise<unknown> {
   return response.json();
 }
 
-export { BASE_URL, getRequest };
+export { BASE_URL, getRequest, coinMarketDataApiUrl };
