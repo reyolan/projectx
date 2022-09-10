@@ -7,7 +7,7 @@ function useToggle(initialState: boolean) {
     setIsOpen(!isOpen);
   };
 
-  return [isOpen, invertToggle];
+  return [isOpen, invertToggle] as const;
 }
 
 export default useToggle;

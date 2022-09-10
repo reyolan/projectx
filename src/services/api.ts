@@ -1,6 +1,6 @@
 const BASE_URL = "https://api.coingecko.com/api/v3";
 
-function coinMarketDataApi(
+function coinMarketDataApiUrl(
   vs_currency: string,
   per_page: string,
   page: string

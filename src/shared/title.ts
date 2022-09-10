@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Title = styled.h1`
-  font-size: 28px;
+  font-size: var(--5xl-text);
 `;
 
 export default Title;
