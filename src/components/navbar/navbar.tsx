@@ -5,8 +5,8 @@ function Navbar() {
     <Nav>
       <h1>Project X</h1>
       <List>
-        <ListItem to="/">Test</ListItem>
-        <ListItem to="/market">Test</ListItem>
+        <ListItem to="/">Home</ListItem>
+        <ListItem to="/market">Market</ListItem>
       </List>
     </Nav>
   );

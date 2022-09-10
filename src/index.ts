@@ -16,7 +16,8 @@ const GlobalStyles = createGlobalStyle`
   --xl-text: 1.25rem;
   --2xl-text: 1.5rem;
   --5xl-text: 3rem;
-  --slate: #f8fbfc }
+  --slate: #f8fbfc;
+  --light-border-color: #e5e7eb }
   
 ul { list-style-type:none;
 }

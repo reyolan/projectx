@@ -1,48 +1,39 @@
 import { useEffect, useState } from "react";
-
-import { List, CoinListItem } from "./coin-list.styled";
+import { CoinTable } from "./coin-list.styled";
 import { IMarketData } from "../../types";
+import CoinName from "../coin-name";
 
 interface ICoinListProps {
   list: IMarketData[];
-  setClickedCoin: React.Dispatch<React.SetStateAction<string>>;
 }
 
-interface ICoinNames {
-  name: string;
-  symbol: string;
-  image: string;
-}
-
-function CoinList({ list, setClickedCoin }: ICoinListProps) {
+function CoinList({ list }: ICoinListProps) {
   // Image Bitcoin(btc)
   // usePagination hook
 
-  const [coinNames, setCoinNames] = useState<ICoinNames[]>([]);
-
-  useEffect(() => {
-    const mappedCoinNames = list.map(item => {
-      return { name: item.name, symbol: item.symbol, image: item.image };
-    });
-
-    setCoinNames(mappedCoinNames);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <List>
-      {coinNames.map((item, i) => {
-        return (
-          <CoinListItem
-            key={i}
-            onClick={e =>
-              setClickedCoin((e.target as HTMLLIElement).textContent || "")
-            }
-          >
-            {item.name}
-          </CoinListItem>
-        );
-      })}
-    </List>
+    <CoinTable>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {list.map((item, i) => {
+          return (
+            <tr key={i}>
+              <td>
+                <CoinName name={item.name} logoUrl={item.image} />
+              </td>
+              <td>5</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </CoinTable>
   );
 }
 

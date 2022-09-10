@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-const List = styled.ul`
-  display: flex;
-  gap: 10px;
-  overflow-x: scroll;
+const CoinTable = styled.table`
+  border: none;
+  border-collapse: collapse;
+
+  thead,
+  tbody > tr {
+    border-top: 1px solid var(--light-border-color);
+    border-bottom: 1px solid var(--light-border-color);
+  }
+
+  th,
+  td {
+    padding: 6px 0;
+  }
 `;
 
-const CoinListItem = styled.li`
-  color: green;
-`;
-
-export { List, CoinListItem };
+export { CoinTable };
