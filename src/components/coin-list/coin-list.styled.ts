@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const CoinTableContainer = styled.div`
+  overflow: auto;
+`;
+
 const CoinTable = styled.table`
   border: none;
   border-collapse: collapse;
@@ -27,4 +31,10 @@ const Percentage = styled.p(
     color: ${positive ? "green" : "red"};
   `
 );
-export { CoinTable, Percentage };
+
+const Caption = styled.caption`
+  font-size: var(--2xl-text);
+  text-align: left;
+  font-weight: bold;
+`;
+export { CoinTable, Percentage, Caption, CoinTableContainer };
