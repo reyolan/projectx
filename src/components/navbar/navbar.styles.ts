@@ -5,13 +5,13 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 48px;
+  padding: 12px 64px;
   border-bottom: solid var(--light-border-color) 1px;
 `;
 
 const List = styled.ul`
   display: flex;
-  gap: 12px;
+  gap: 16px;
 `;
 
 const ListItem = styled(Link)`

@@ -8,16 +8,12 @@ import { MarketDetailsContainer } from "./market-details.styles";
 function MarketDetails() {
   const [data, error, isLoading] = useFetch(coinMarketDataApiUrl("usd"));
 
-  // track clicked link
-  // create coin details component, pass the data there and we'll send the clicked link
-  // there to find the exact data for that table
-
   useEffect(() => {
     console.log(data);
   }, [data]);
 
   return (
-    <MarketDetailsContainer>
+    <>
       {isLoading ? (
         <TailSpin
           height="64"
@@ -34,7 +30,7 @@ function MarketDetails() {
           <CoinList list={data} />
         </>
       )}
-    </MarketDetailsContainer>
+    </>
   );
 }
 
