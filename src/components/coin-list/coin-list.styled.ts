@@ -8,6 +8,9 @@ const CoinTable = styled.table`
   tbody > tr {
     border-top: 1px solid var(--light-border-color);
     border-bottom: 1px solid var(--light-border-color);
+  }
+
+  tbody > tr {
     &:hover {
       background-color: lightgray;
     }
