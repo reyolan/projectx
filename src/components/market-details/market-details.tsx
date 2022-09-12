@@ -26,7 +26,7 @@ function MarketDetails() {
         />
       ) : (
         <>
-          {paginatedData.length > 0 && <CoinList list={paginatedData} />}
+          <CoinList list={paginatedData} />
           <PageNumbers data={data} setPaginatedData={setPaginatedData} />
         </>
       )}

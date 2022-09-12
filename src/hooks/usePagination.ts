@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { range } from "../utils/helpers";
 
 const FIRST_PAGE = 1;
@@ -14,13 +15,21 @@ function usePagination<T>(
   const [pageRange, setPageRange] = useState<number[]>(
     range(FIRST_PAGE + 1, initialPageSize)
   );
-
   const currentPageRef = useRef(FIRST_PAGE);
+  const navigate = useNavigate();
+  const [searchParams, _] = useSearchParams();
 
   const lastPage = useMemo(
     () => Math.ceil(dataToPaginate.length / itemsPerPage),
     []
   );
+
+  useEffect(() => {
+    const pageNumberParams = searchParams.get("page") ?? "1";
+    currentPageRef.current = +pageNumberParams;
+    setCurrentPage(+pageNumberParams);
+    jumpToPage(+pageNumberParams);
+  }, []);
 
   useEffect(() => {
     const getCurrentPageData = () => {
@@ -31,6 +40,12 @@ function usePagination<T>(
     };
 
     getCurrentPageData();
+  }, [currentPage]);
+
+  useEffect(() => {
+    navigate({
+      search: `?page=${currentPageRef.current}`,
+    });
   }, [currentPage]);
 
   const nextPage = useCallback(() => {

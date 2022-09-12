@@ -4,6 +4,7 @@ import {
   PageNumbersContainer,
   PageNumber,
   PageNavigation,
+  DotText,
 } from "./page-numbers.styles";
 import { IMarketData } from "../../types";
 
@@ -28,10 +29,6 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
     setPaginatedData(currentPageData);
   }, [currentPageData]);
 
-  useEffect(() => {
-    console.log(currentPage === firstPage);
-  }, [currentPage]);
-
   return (
     <PageNumbersContainer>
       <PageNavigation disabled={currentPage === firstPage} onClick={prevPage}>
@@ -45,7 +42,7 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
         {firstPage}
       </PageNumber>
 
-      {firstPage + 1 !== pageRange[0] && <p>...</p>}
+      {firstPage + 1 !== pageRange[0] && <DotText>...</DotText>}
 
       {pageRange.map(
         (pageNumber, i): React.ReactNode => (
@@ -61,7 +58,7 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
         )
       )}
 
-      {lastPage - 1 !== pageRange.at(-1) && <p>...</p>}
+      {lastPage - 1 !== pageRange.at(-1) && <DotText>...</DotText>}
 
       <PageNumber
         selected={currentPage === lastPage}

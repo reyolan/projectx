@@ -6,7 +6,6 @@ const PageContainer = styled.div`
   flex-direction: column;
   height: 100%;
   padding: 12px 64px;
-  border: solid red 1px;
   background-color: var(--slate);
 `;
 

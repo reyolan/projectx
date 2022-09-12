@@ -9,7 +9,7 @@ function useFetch(url: string) {
   useEffect(() => {
     const getRequest = async () => {
       const response = await fetch(url);
-      console.log(response);
+
       try {
         const data = await response.json();
         setData(data);
