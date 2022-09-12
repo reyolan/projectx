@@ -19,7 +19,8 @@ const GlobalStyles = createGlobalStyle`
   --4xl-text: 2.25rem;
   --5xl-text: 3rem;
   --slate: #f8fbfc;
-  --light-slate: #e5e7eb }
+  --light-slate: #e5e7eb;
+  --lighter-gray: #ebebeb; }
   
 ul { list-style-type:none;
 }

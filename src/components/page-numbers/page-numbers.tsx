@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import usePagination from "../../hooks/usePagination";
-import { PageNumbersContainer, PageNumber } from "./page-numbers.styles";
+import {
+  PageNumbersContainer,
+  PageNumber,
+  PageNavigation,
+} from "./page-numbers.styles";
 import { IMarketData } from "../../types";
 
 interface IPageNumbersProps {
@@ -24,9 +28,15 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
     setPaginatedData(currentPageData);
   }, [currentPageData]);
 
+  useEffect(() => {
+    console.log(currentPage === firstPage);
+  }, [currentPage]);
+
   return (
     <PageNumbersContainer>
-      {currentPage > 1 && <div onClick={prevPage}>Previous</div>}
+      <PageNavigation disabled={currentPage === firstPage} onClick={prevPage}>
+        {"<"}
+      </PageNavigation>
 
       <PageNumber
         selected={currentPage === firstPage}
@@ -34,7 +44,9 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
       >
         {firstPage}
       </PageNumber>
+
       {firstPage + 1 !== pageRange[0] && <p>...</p>}
+
       {pageRange.map(
         (pageNumber, i): React.ReactNode => (
           <PageNumber
@@ -48,14 +60,19 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
           </PageNumber>
         )
       )}
+
       {lastPage - 1 !== pageRange.at(-1) && <p>...</p>}
+
       <PageNumber
         selected={currentPage === lastPage}
         onClick={() => jumpToPage(lastPage)}
       >
         {lastPage}
       </PageNumber>
-      {currentPage < lastPage && <div onClick={nextPage}>Next</div>}
+
+      <PageNavigation disabled={currentPage === lastPage} onClick={nextPage}>
+        {">"}
+      </PageNavigation>
     </PageNumbersContainer>
   );
 }
