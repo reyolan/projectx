@@ -10,8 +10,8 @@ const CoinTable = styled.table`
 
   thead,
   tbody > tr {
-    border-top: 1px solid var(--light-border-color);
-    border-bottom: 1px solid var(--light-border-color);
+    border-top: 1px solid var(--light-slate);
+    border-bottom: 1px solid var(--light-slate);
   }
 
   tbody > tr {

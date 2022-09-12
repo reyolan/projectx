@@ -4,13 +4,12 @@ import CoinList from "../coin-list";
 import { coinMarketDataApiUrl } from "../../services/api";
 import { TailSpin } from "react-loader-spinner";
 import { MarketDetailsContainer } from "./market-details.styles";
+import PageNumbers from "../page-numbers";
+import { IMarketData } from "../../types";
 
 function MarketDetails() {
   const [data, error, isLoading] = useFetch(coinMarketDataApiUrl("usd"));
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  const [paginatedData, setPaginatedData] = useState<IMarketData[]>([]);
 
   return (
     <>
@@ -21,13 +20,14 @@ function MarketDetails() {
           color="#8DC647"
           ariaLabel="tail-spin-loading"
           radius="1"
-          wrapperStyle={{}}
+          wrapperStyle={{ margin: "0 auto" }}
           wrapperClass=""
           visible={true}
         />
       ) : (
         <>
-          <CoinList list={data} />
+          {paginatedData.length > 0 && <CoinList list={paginatedData} />}
+          <PageNumbers data={data} setPaginatedData={setPaginatedData} />
         </>
       )}
     </>

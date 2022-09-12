@@ -40,9 +40,15 @@ function convertToPercentage(number: number) {
   return numberWithSeparator + "%";
 }
 
+function range(start: number, end: number) {
+  const length = end - start + 1;
+  return Array.from(new Array(length), (_, i) => i + start);
+}
+
 export {
   convertToUSD,
   isPositive,
   convertIsoToDateString,
   convertToPercentage,
+  range,
 };

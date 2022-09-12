@@ -6,7 +6,11 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 12px 64px;
-  border-bottom: solid var(--light-border-color) 1px;
+  border-bottom: solid var(--light-slate) 1px;
+`;
+
+const NavTitle = styled.h1`
+  font-size: var(--2xl-text);
 `;
 
 const List = styled.ul`
@@ -15,13 +19,13 @@ const List = styled.ul`
 `;
 
 const ListItem = styled(Link)`
-  font-size: var(--base-text);
-  font-weight: 600;
+  font-size: var(--xl-text);
+  font-weight: 400;
   color: black;
 
   &:hover {
-    opacity: 0.8;
+    color: var(--light-green);
   }
 `;
 
-export { Nav, List, ListItem };
+export { Nav, List, ListItem, NavTitle };

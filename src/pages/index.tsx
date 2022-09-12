@@ -1,5 +1,5 @@
 import Title from "../shared/title";
-import LinkButton from "../shared/link";
+import LinkButton from "../shared/link-button";
 import PageContainer from "../shared/page-container";
 
 export default function Home() {

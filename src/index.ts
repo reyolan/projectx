@@ -15,9 +15,11 @@ const GlobalStyles = createGlobalStyle`
   --large-text: 1.125rem;
   --xl-text: 1.25rem;
   --2xl-text: 1.5rem;
+  --3xl-text: 1.875rem;
+  --4xl-text: 2.25rem;
   --5xl-text: 3rem;
   --slate: #f8fbfc;
-  --light-border-color: #e5e7eb }
+  --light-slate: #e5e7eb }
   
 ul { list-style-type:none;
 }
