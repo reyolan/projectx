@@ -3,8 +3,7 @@ import styled from "styled-components";
 const PageNumbersContainer = styled.div`
   display: flex;
   gap: 6px;
-  margin: 0 auto;
-  padding-top: 6px;
+  margin: 12px auto 0;
 `;
 
 const PageNumber = styled.div(
@@ -46,14 +45,4 @@ const PageNavigation = styled.div(
 `
 );
 
-const DotText = styled.p`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 2px 6px;
-  height: 36px;
-  width: 36px;
-`;
-
-export { PageNumbersContainer, PageNumber, PageNavigation, DotText };
+export { PageNumbersContainer, PageNumber, PageNavigation };

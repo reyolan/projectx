@@ -1,11 +1,10 @@
-import { Nav, List, ListItem, NavTitle } from "./navbar.styles";
+import { Nav, List, ListItem, NavTitleLink } from "./navbar.styles";
 
 function Navbar() {
   return (
     <Nav>
-      <NavTitle>Project X</NavTitle>
+      <NavTitleLink to="/">Project X</NavTitleLink>
       <List>
-        <ListItem to="/">Home</ListItem>
         <ListItem to="/market">Market</ListItem>
       </List>
     </Nav>

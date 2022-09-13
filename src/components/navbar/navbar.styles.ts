@@ -9,8 +9,10 @@ const Nav = styled.nav`
   border-bottom: solid var(--light-slate) 1px;
 `;
 
-const NavTitle = styled.h1`
+const NavTitleLink = styled(Link)`
   font-size: var(--2xl-text);
+  font-weight: 700;
+  color: var(--light-green);
 `;
 
 const List = styled.ul`
@@ -28,4 +30,4 @@ const ListItem = styled(Link)`
   }
 `;
 
-export { Nav, List, ListItem, NavTitle };
+export { Nav, List, ListItem, NavTitleLink };

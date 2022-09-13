@@ -45,10 +45,15 @@ function range(start: number, end: number) {
   return Array.from(new Array(length), (_, i) => i + start);
 }
 
+function showValueOrDash(value: number | undefined) {
+  return value ? value.toLocaleString() : "-";
+}
+
 export {
   convertToUSD,
   isPositive,
   convertIsoToDateString,
   convertToPercentage,
   range,
+  showValueOrDash,
 };

@@ -11,8 +11,32 @@ import {
   convertToPercentage,
   convertToUSD,
   isPositive,
+  showValueOrDash,
 } from "../../utils/helpers";
 import CoinName from "../coin-name";
+
+const COIN_LIST_HEADER_COLUMNS = [
+  "Rank",
+  "Name",
+  "Symbol",
+  "Price",
+  "% Price Change (24h)",
+  "Market Cap",
+  "Total Volume",
+  "Fully Diluted Valuation",
+  "24h High",
+  "24h Low",
+  "All-Time High",
+  "All-Time High % Change",
+  "All-Time High Date",
+  "All-Time Low",
+  "All-Time Low % Change",
+  "All-Time Low Date",
+  "Circulating Supply",
+  "Total Supply",
+  "Max Supply",
+  "Last Updated",
+] as const;
 
 interface ICoinListProps {
   list: IMarketData[];
@@ -25,26 +49,11 @@ function CoinList({ list }: ICoinListProps) {
         <Caption>Market Data</Caption>
         <thead>
           <tr>
-            <th scope="col">Rank</th>
-            <th scope="col">Name</th>
-            <th scope="col">Symbol</th>
-            <th scope="col">Price</th>
-            <th scope="col">% Price Change (24h)</th>
-            <th scope="col">Market Cap</th>
-            <th scope="col">Total Volume</th>
-            <th scope="col">Fully Diluted Valuation</th>
-            <th scope="col">24h High</th>
-            <th scope="col">24h Low</th>
-            <th scope="col">All-Time High</th>
-            <th scope="col">All-Time High % Change</th>
-            <th scope="col">All-Time High Date</th>
-            <th scope="col">All-Time Low</th>
-            <th scope="col">All-Time Low % Change</th>
-            <th scope="col">All-Time Low Date</th>
-            <th scope="col">Circulating Supply</th>
-            <th scope="col">Total Supply</th>
-            <th scope="col">Max Supply</th>
-            <th scope="col">Last Updated</th>
+            {COIN_LIST_HEADER_COLUMNS.map((item, i) => (
+              <th scope="col" key={i}>
+                {item}
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -66,11 +75,7 @@ function CoinList({ list }: ICoinListProps) {
                 </td>
                 <td>{convertToUSD(item.market_cap)}</td>
                 <td>{convertToUSD(item.total_volume)}</td>
-                <td>
-                  {item.fully_diluted_valuation
-                    ? item.fully_diluted_valuation.toLocaleString()
-                    : "-"}
-                </td>
+                <td>{showValueOrDash(item.fully_diluted_valuation)}</td>
                 <td>{convertToUSD(item.high_24h)}</td>
                 <td>{convertToUSD(item.low_24h)}</td>
                 <td>{convertToUSD(item.ath)}</td>
@@ -88,12 +93,8 @@ function CoinList({ list }: ICoinListProps) {
                 </td>
                 <td>{convertIsoToDateString(item.atl_date)}</td>
                 <td>{item.circulating_supply.toLocaleString()}</td>
-                <td>
-                  {item.total_supply ? item.total_supply.toLocaleString() : "-"}
-                </td>
-                <td>
-                  {item.max_supply ? item.total_supply.toLocaleString() : "-"}
-                </td>
+                <td>{showValueOrDash(item.total_supply)}</td>
+                <td>{showValueOrDash(item.max_supply)}</td>
                 <td>{item.last_updated}</td>
               </tr>
             );

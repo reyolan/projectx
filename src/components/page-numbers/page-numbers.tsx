@@ -4,7 +4,6 @@ import {
   PageNumbersContainer,
   PageNumber,
   PageNavigation,
-  DotText,
 } from "./page-numbers.styles";
 import { IMarketData } from "../../types";
 
@@ -23,7 +22,7 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
     jumpToPage,
     pageRange,
     currentPage,
-  } = usePagination<IMarketData>(10, 2, 5, data);
+  } = usePagination<IMarketData>(10, 0, 1, data);
 
   useEffect(() => {
     setPaginatedData(currentPageData);

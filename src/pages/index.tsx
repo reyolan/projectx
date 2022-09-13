@@ -4,7 +4,7 @@ import PageContainer from "../shared/page-container";
 
 export default function Home() {
   return (
-    <PageContainer>
+    <PageContainer full={true}>
       <Title>Project X</Title>
       <LinkButton to="/market">See Market</LinkButton>
     </PageContainer>
