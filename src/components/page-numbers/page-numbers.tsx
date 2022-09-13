@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import usePagination from "../../hooks/usePagination";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 import {
   PageNumbersContainer,
   PageNumber,
