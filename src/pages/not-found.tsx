@@ -6,7 +6,7 @@ import PageContainer from "../shared/page-container";
 export default function NotFound() {
   const location = useLocation();
   return (
-    <PageContainer full={true}>
+    <PageContainer>
       <Title>404: Not Found</Title>
       <Subtitle>No match for {location.pathname}</Subtitle>
     </PageContainer>

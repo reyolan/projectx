@@ -5,7 +5,8 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 64px;
+  padding: 0 64px;
+  height: 64px;
   border-bottom: solid var(--light-slate) 1px;
 `;
 

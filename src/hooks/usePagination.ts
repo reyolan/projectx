@@ -23,9 +23,14 @@ function usePagination<T>(
 
   useEffect(() => {
     const pageNumberParams = searchParams.get("page") ?? "1";
-    const pageNumber =
-      +pageNumberParams > lastPage ? lastPage : +pageNumberParams;
-    jumpToPage(pageNumber);
+
+    if (+pageNumberParams > lastPage) {
+      jumpToPage(lastPage);
+    } else if (+pageNumberParams < FIRST_PAGE) {
+      jumpToPage(FIRST_PAGE);
+    } else {
+      jumpToPage(+pageNumberParams);
+    }
   }, []);
 
   useEffect(() => {
@@ -41,7 +46,7 @@ function usePagination<T>(
 
   useEffect(() => {
     const searchParams =
-      currentPageRef.current === 1 ? "" : `?page=${currentPageRef.current}`;
+      currentPageRef.current <= 1 ? "" : `?page=${currentPageRef.current}`;
 
     navigate({
       search: searchParams,

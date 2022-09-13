@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const PageNumbersContainer = styled.div`
   display: flex;
+  align-items: center;
   gap: 6px;
   margin: 12px auto 0;
 `;
@@ -15,13 +16,20 @@ const PageNumber = styled.div(
   background-color: ${selected ? "var(--lighter-gray)" : "white"};
   padding: 0 12px;
   border-radius: 8px;
-  height: 36px;
-  width: 36px;
+  height: 28px;
+  width: 28px;
 
-  &:hover {
-    background-color: var(--light-green);
-    cursor: pointer;
-    color: var(--lighter-gray);
+  @media (hover: hover){
+    &:hover {
+      background-color: var(--light-green);
+      cursor: pointer;
+      color: var(--lighter-gray);
+    }
+  }
+
+  @media screen and (min-width: 40em) {
+    height: 36px;
+    width: 36px
   }
 `
 );
@@ -33,14 +41,22 @@ const PageNavigation = styled.div(
   align-items: center;
   border: solid lightgray 1px;
   border-radius: 8px;
-  height: 36px;
-  width: 36px;
+  height: 28px;
+  width: 28px;
 
-  &:hover {
-    background-color: ${disabled ? "var(--slate)" : "var(--light-green)"};
-    cursor: ${disabled ? "default" : "pointer"};
-    pointer-events: ${disabled ? "none" : "auto"};
-    color: ${disabled ? "black" : "var(--lighter-gray);"}
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${disabled ? "var(--slate)" : "var(--light-green)"};
+      cursor: ${disabled ? "default" : "pointer"};
+      pointer-events: ${disabled ? "none" : "auto"};
+      color: ${disabled ? "black" : "var(--lighter-gray);"}
+    }
+  }
+
+  @media screen and (min-width: 40em) {
+    height: 36px;
+    width: 36px
+  }
 
 `
 );

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import usePagination from "../../hooks/usePagination";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import {
   PageNumbersContainer,
   PageNumber,
@@ -22,7 +23,7 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
     jumpToPage,
     pageRange,
     currentPage,
-  } = usePagination<IMarketData>(10, 0, 1, data);
+  } = usePagination<IMarketData>(10, 1, 3, data);
 
   useEffect(() => {
     setPaginatedData(currentPageData);
@@ -30,12 +31,13 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
 
   return (
     <PageNumbersContainer>
-      <PageNumber
-        selected={currentPage === firstPage}
+      <PageNavigation
+        disabled={currentPage === firstPage}
         onClick={() => jumpToPage(firstPage)}
       >
         {"<<"}
-      </PageNumber>
+      </PageNavigation>
+
       <PageNavigation disabled={currentPage === firstPage} onClick={prevPage}>
         {"<"}
       </PageNavigation>
@@ -58,12 +60,12 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
         {">"}
       </PageNavigation>
 
-      <PageNumber
-        selected={currentPage === lastPage}
+      <PageNavigation
+        disabled={currentPage === lastPage}
         onClick={() => jumpToPage(lastPage)}
       >
         {">>"}
-      </PageNumber>
+      </PageNavigation>
     </PageNumbersContainer>
   );
 }

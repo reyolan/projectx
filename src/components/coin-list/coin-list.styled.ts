@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CoinTableContainer = styled.div`
-  overflow: auto;
+  overflow-x: scroll;
 `;
 
 const CoinTable = styled.table`

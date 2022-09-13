@@ -3,7 +3,7 @@ import PageContainer from "../shared/page-container";
 
 export default function MarketList() {
   return (
-    <PageContainer full={false}>
+    <PageContainer>
       <MarketDetails />
     </PageContainer>
   );

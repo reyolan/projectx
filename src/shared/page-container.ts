@@ -6,11 +6,7 @@ const PageContainer = styled.div`
   flex-direction: column;
   padding: 12px 64px;
   background-color: var(--slate);
-  ${({ full }: { full: boolean }) =>
-    full &&
-    `
-    height: 100%;
-  `}
+  min-height: calc(100vh - 64px);
 `;
 
 export default PageContainer;
