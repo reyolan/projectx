@@ -49,8 +49,11 @@ const PageNavigation = styled.div(
 const DotText = styled.p`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: flex-end;
   padding: 0 2px 6px;
+  height: 36px;
+  width: 36px;
 `;
 
 export { PageNumbersContainer, PageNumber, PageNavigation, DotText };

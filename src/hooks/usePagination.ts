@@ -18,7 +18,6 @@ function usePagination<T>(
   const currentPageRef = useRef(FIRST_PAGE);
   const navigate = useNavigate();
   const [searchParams, _] = useSearchParams();
-
   const lastPage = useMemo(
     () => Math.ceil(dataToPaginate.length / itemsPerPage),
     []
@@ -90,7 +89,7 @@ function usePagination<T>(
     // update page range
     if (
       currentPageRef.current >= pageToChangeRange &&
-      currentPageRef.current < anotherPageToChangeRange + initialPageSize
+      currentPageRef.current < anotherPageToChangeRange + initialPageSize - 3
     ) {
       setPageRange(
         range(
