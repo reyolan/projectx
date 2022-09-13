@@ -19,11 +19,6 @@ interface ICoinListProps {
 }
 
 function CoinList({ list }: ICoinListProps) {
-  // Image Bitcoin(btc)
-  // usePagination hook
-
-  useEffect(() => {}, []);
-
   return (
     <CoinTableContainer>
       <CoinTable>

@@ -23,7 +23,7 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
     jumpToPage,
     pageRange,
     currentPage,
-  } = usePagination<IMarketData>(10, 1, 5, data);
+  } = usePagination<IMarketData>(10, 2, 5, data);
 
   useEffect(() => {
     setPaginatedData(currentPageData);
@@ -31,18 +31,15 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
 
   return (
     <PageNumbersContainer>
-      <PageNavigation disabled={currentPage === firstPage} onClick={prevPage}>
-        {"<"}
-      </PageNavigation>
-
       <PageNumber
         selected={currentPage === firstPage}
         onClick={() => jumpToPage(firstPage)}
       >
-        {firstPage}
+        {"<<"}
       </PageNumber>
-
-      {firstPage + 1 !== pageRange[0] && <DotText>...</DotText>}
+      <PageNavigation disabled={currentPage === firstPage} onClick={prevPage}>
+        {"<"}
+      </PageNavigation>
 
       {pageRange.map(
         (pageNumber, i): React.ReactNode => (
@@ -58,18 +55,16 @@ function PageNumbers({ data, setPaginatedData }: IPageNumbersProps) {
         )
       )}
 
-      {lastPage - 1 !== pageRange.at(-1) && <DotText>...</DotText>}
+      <PageNavigation disabled={currentPage === lastPage} onClick={nextPage}>
+        {">"}
+      </PageNavigation>
 
       <PageNumber
         selected={currentPage === lastPage}
         onClick={() => jumpToPage(lastPage)}
       >
-        {lastPage}
+        {">>"}
       </PageNumber>
-
-      <PageNavigation disabled={currentPage === lastPage} onClick={nextPage}>
-        {">"}
-      </PageNavigation>
     </PageNumbersContainer>
   );
 }

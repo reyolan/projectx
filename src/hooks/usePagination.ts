@@ -12,9 +12,7 @@ function usePagination<T>(
 ) {
   const [currentPage, setCurrentPage] = useState(FIRST_PAGE);
   const [currentPageData, setCurrentPageData] = useState<T[]>([]);
-  const [pageRange, setPageRange] = useState<number[]>(
-    range(FIRST_PAGE + 1, initialPageSize)
-  );
+  const [pageRange, setPageRange] = useState<number[]>([]);
   const currentPageRef = useRef(FIRST_PAGE);
   const navigate = useNavigate();
   const [searchParams, _] = useSearchParams();
@@ -63,19 +61,14 @@ function usePagination<T>(
     ) {
       setPageRange(
         range(
-          currentPageRef.current - 1,
+          currentPageRef.current - pageNumbersToShowCount,
           currentPageRef.current + pageNumbersToShowCount
         )
       );
     }
 
     if (currentPageRef.current === anotherPageToChangeRange + 1) {
-      setPageRange(
-        range(
-          currentPageRef.current - 1,
-          currentPageRef.current + initialPageSize - 3
-        )
-      );
+      setPageRange(range(currentPageRef.current - 1, lastPage));
     }
   }, []);
 
@@ -89,18 +82,19 @@ function usePagination<T>(
     // update page range
     if (
       currentPageRef.current >= pageToChangeRange &&
-      currentPageRef.current < anotherPageToChangeRange + initialPageSize - 3
+      currentPageRef.current <
+        anotherPageToChangeRange + pageNumbersToShowCount + 1
     ) {
       setPageRange(
         range(
           currentPageRef.current - pageNumbersToShowCount,
-          currentPageRef.current + 1
+          currentPageRef.current + pageNumbersToShowCount
         )
       );
     }
 
     if (currentPageRef.current === pageToChangeRange) {
-      setPageRange(range(FIRST_PAGE + 1, currentPageRef.current + 1));
+      setPageRange(range(FIRST_PAGE, currentPageRef.current + 1));
     }
   }, []);
 
@@ -111,13 +105,13 @@ function usePagination<T>(
     const anotherPageToChangeRange = lastPage - initialPageSize; //6
 
     if (currentPageRef.current < initialPageSize) {
-      setPageRange(range(FIRST_PAGE + 1, initialPageSize));
+      setPageRange(range(FIRST_PAGE, initialPageSize));
     } else if (currentPageRef.current > anotherPageToChangeRange + 1) {
-      setPageRange(range(lastPage - initialPageSize + 1, lastPage - 1));
+      setPageRange(range(lastPage - initialPageSize + 1, lastPage));
     } else {
       setPageRange(
         range(
-          currentPageRef.current - 1,
+          currentPageRef.current - pageNumbersToShowCount,
           currentPageRef.current + pageNumbersToShowCount
         )
       );
