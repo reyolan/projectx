@@ -5,9 +5,13 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 64px;
+  padding: 0 32px;
   height: 64px;
   border-bottom: solid var(--light-slate) 1px;
+
+  @media screen and (min-width: 480px) {
+    padding: 0px 64px;
+  }
 `;
 
 const NavTitleLink = styled(Link)`

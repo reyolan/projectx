@@ -27,7 +27,7 @@ const PageNumber = styled.div(
     }
   }
 
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 480px) {
     height: 36px;
     width: 36px
   }
@@ -53,7 +53,7 @@ const PageNavigation = styled.div(
     }
   }
 
-  @media screen and (min-width: 40em) {
+  @media screen and (min-width: 480px) {
     height: 36px;
     width: 36px
   }
