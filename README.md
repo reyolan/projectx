@@ -2,6 +2,14 @@
 
 A simple app to show my React skillset by fetching a CoinGecko API endpoint.
 
+## Technologies/Libraries
+
+- Vite
+- Typescript
+- React Router
+- Styled Components
+- React Loader Spinner
+
 ## Setup
 
 ### Clone the App
