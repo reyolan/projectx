@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 const CoinTableContainer = styled.div`
   overflow-x: scroll;
+  height: 100%;
 `;
 
 const CoinTable = styled.table`
   border: none;
   border-collapse: collapse;
+  table-layout: fixed;
+  height: 100%;
 
   thead,
   tbody > tr {
@@ -24,9 +27,9 @@ const CoinTable = styled.table`
     white-space: pre;
   }
 
-  th,
   td {
-    padding: 16px 32px;
+    padding: 0px 32px;
+    height: 70px;
   }
 `;
 
