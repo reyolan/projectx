@@ -1,4 +1,4 @@
-import { CoinNameContainer, CoinLogo } from "./coin-name.styled";
+import { CoinNameContainer, CoinLogo } from "./coin-name.styles";
 
 interface ICoinNameProps {
   name: string;

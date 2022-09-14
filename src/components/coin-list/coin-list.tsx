@@ -3,7 +3,7 @@ import {
   Percentage,
   Caption,
   CoinTableContainer,
-} from "./coin-list.styled";
+} from "./coin-list.styles";
 import { IMarketData } from "../../types";
 import {
   convertIsoToDateString,

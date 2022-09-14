@@ -26,6 +26,7 @@ const CoinTable = styled.table`
 
   th {
     white-space: pre;
+    padding: 6px 12px;
   }
 
   tr > td {
@@ -34,9 +35,7 @@ const CoinTable = styled.table`
     text-align: center;
   }
 
-  tr > td:nth-child(2) {
-    text-align: center;
-  }
+
 `;
 
 const Percentage = styled.p(
