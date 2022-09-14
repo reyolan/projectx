@@ -20,9 +20,13 @@ const CoinTable = styled.table`
     }
   }
 
+  th {
+    white-space: pre;
+  }
+
   th,
   td {
-    padding: 6px 12px;
+    padding: 16px 32px;
   }
 `;
 
