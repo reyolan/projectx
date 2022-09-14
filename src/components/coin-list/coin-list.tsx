@@ -75,7 +75,7 @@ function CoinList({ list }: ICoinListProps) {
                 </td>
                 <td>{convertToUSD(item.market_cap)}</td>
                 <td>{convertToUSD(item.total_volume)}</td>
-                <td>{showValueOrDash(item.fully_diluted_valuation)}</td>
+                <td>{convertToUSD(item.fully_diluted_valuation)}</td>
                 <td>{convertToUSD(item.high_24h)}</td>
                 <td>{convertToUSD(item.low_24h)}</td>
                 <td>{convertToUSD(item.ath)}</td>

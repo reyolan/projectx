@@ -1,4 +1,6 @@
-function convertToUSD(value: number) {
+function convertToUSD(value: number | undefined | null) {
+  if (value === undefined || value === null) return "-";
+
   const withoutCents = new Intl.NumberFormat("en-us", {
     style: "currency",
     currency: "USD",

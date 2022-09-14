@@ -28,9 +28,13 @@ const CoinTable = styled.table`
     white-space: pre;
   }
 
-  td {
+  tr > td {
     height: 70px;
     padding: 0 16px;
+    text-align: center;
+  }
+
+  tr > td:nth-child(2) {
     text-align: center;
   }
 `;

@@ -9,6 +9,8 @@ const CoinNameContainer = styled.div`
   display: flex;
   gap: 6px;
   align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 `;
 
 export { CoinLogo, CoinNameContainer };
