@@ -36,9 +36,14 @@ function convertIsoToDateTimeString(isoFormat: string) {
   const date = new Date(isoFormat);
   const hour = date.getHours();
   const minute = date.getMinutes();
-  const second = date.getSeconds();
+  const prependZeroMinute = minute < 10 ? "0" + minute : minute;
 
-  return `${convertIsoToDateString(isoFormat)} ${hour}:${minute}:${second} `;
+  const second = date.getSeconds();
+  const prependZeroSecond = second < 10 ? "0" + second : second;
+
+  return `${convertIsoToDateString(
+    isoFormat
+  )} ${hour}:${prependZeroMinute}:${prependZeroSecond} `;
 }
 
 function convertToPercentage(number: number) {
