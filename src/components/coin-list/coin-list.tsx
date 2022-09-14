@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   CoinTable,
   Percentage,
@@ -8,6 +7,7 @@ import {
 import { IMarketData } from "../../types";
 import {
   convertIsoToDateString,
+  convertIsoToDateTimeString,
   convertToPercentage,
   convertToUSD,
   isPositive,
@@ -95,7 +95,7 @@ function CoinList({ list }: ICoinListProps) {
                 <td>{item.circulating_supply.toLocaleString()}</td>
                 <td>{showValueOrDash(item.total_supply)}</td>
                 <td>{showValueOrDash(item.max_supply)}</td>
-                <td>{item.last_updated}</td>
+                <td>{convertIsoToDateTimeString(item.last_updated)}</td>
               </tr>
             );
           })}

@@ -32,6 +32,11 @@ function convertIsoToDateString(isoFormat: string) {
 
 function convertIsoToDateTimeString(isoFormat: string) {
   const date = new Date(isoFormat);
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
+
+  return `${convertIsoToDateString(isoFormat)} ${hour}:${minute}:${second} `;
 }
 
 function convertToPercentage(number: number) {
@@ -53,6 +58,7 @@ export {
   convertToUSD,
   isPositive,
   convertIsoToDateString,
+  convertIsoToDateTimeString,
   convertToPercentage,
   range,
   showValueOrDash,

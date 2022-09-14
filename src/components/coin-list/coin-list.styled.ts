@@ -10,6 +10,7 @@ const CoinTable = styled.table`
   border-collapse: collapse;
   table-layout: fixed;
   height: 100%;
+  min-width: 200%;
 
   thead,
   tbody > tr {
@@ -28,8 +29,9 @@ const CoinTable = styled.table`
   }
 
   td {
-    padding: 0px 32px;
     height: 70px;
+    padding: 0 16px;
+    text-align: center;
   }
 `;
 
