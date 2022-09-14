@@ -7,14 +7,4 @@ function coinMarketDataApiUrl(vs_currency: string) {
   return BASE_URL + coinMarketRelativeUrl + searchParams;
 }
 
-async function getRequest(url: string): Promise<unknown> {
-  const response = await fetch(url);
-
-  if (!response.ok) {
-    throw new Error(`${response.status}: ${response.statusText}`);
-  }
-
-  return response.json();
-}
-
-export { BASE_URL, getRequest, coinMarketDataApiUrl };
+export { BASE_URL, coinMarketDataApiUrl };

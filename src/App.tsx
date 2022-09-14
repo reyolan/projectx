@@ -1,5 +1,3 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import GlobalStyles from ".";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./pages";

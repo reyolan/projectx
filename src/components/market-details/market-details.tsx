@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import CoinList from "../coin-list";
 import { coinMarketDataApiUrl } from "../../services/api";
 import { TailSpin } from "react-loader-spinner";
-import { MarketDetailsContainer } from "./market-details.styles";
 import PageNumbers from "../page-numbers";
 import { IMarketData } from "../../types";
 
